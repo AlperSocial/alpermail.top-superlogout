@@ -9,7 +9,7 @@ AlperMail is the best email provider that you can choose! This project was inspi
 
 ## Acknowledgements
 
-This website will make you logout out of some sites lmfao
+This is not an email service, this is a joke. This website will make you logout out of some sites so be careful!
 
 
 ## Features
