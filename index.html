@@ -1,3 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AlperMail</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin-top: 5em;
+    }
+    
+    h1 {
+      margin: 0 auto;
+      text-align: center;
+      font-size: 4em;
+    }
+    
+    ul {
+      width: 500px;
+      margin: 2em auto;
+    }
+  
+    .hidden {
+      position: fixed;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      top: -10px;
+      left: -10px;
+    }
+    
+    .success {
+      font-weight: bold;
+      color: #0a0;
+    }
+    
+    .error {
+      color: #a00;
+    }
+  </style>
+  <script>
+    function cleanup(func, el, delayCleanup) {
+      return function() {
+        if (delayCleanup) {
+          delayCleanup = false;
+          return;
+        }
+        func();
+        el.parentNode.removeChild(el);
+      };
+    }
+  
+    function get(url) {
+      return function(success, error) {
+        var img = document.createElement("img");
+        img.onload = cleanup(success, img);
+        img.onerror = cleanup(success, img);
+        img.className = "hidden";
+        document.body.appendChild(img);
+        img.src = url;
+      };
+    }
+    
+    var numPostFrames = 0;
+    function post(url, params, fakeOk) {
+      params = params || {};
+      return function(success, error) {
+        var form = document.createElement("form");
+        var iframe = document.createElement("iframe");
 
-<!-- saved from url=(0014)about:internet -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="color-scheme" content="light dark"></head><body><div class="line-gutter-backdrop"></div><form autocomplete="off"><label class="line-wrap-control">Line wrap<input type="checkbox" aria-label="Line wrap"></label></form><table><tbody><tr><td class="line-number" value="1"></td><td class="line-content"><span class="html-doctype">&lt;!DOCTYPE html&gt;</span></td></tr><tr><td class="line-number" value="2"></td><td class="line-content"><span class="html-tag">&lt;html&gt;</span></td></tr><tr><td class="line-number" value="3"></td><td class="line-content"><span class="html-tag">&lt;head&gt;</span></td></tr><tr><td class="line-number" value="4"></td><td class="line-content">  <span class="html-tag">&lt;title&gt;</span>Super Logout<span class="html-tag">&lt;/title&gt;</span></td></tr><tr><td class="line-number" value="5"></td><td class="line-content">  <span class="html-tag">&lt;style&gt;</span></td></tr><tr><td class="line-number" value="6"></td><td class="line-content">    body {</td></tr><tr><td class="line-number" value="7"></td><td class="line-content">      font-family: sans-serif;</td></tr><tr><td class="line-number" value="8"></td><td class="line-content">      margin-top: 5em;</td></tr><tr><td class="line-number" value="9"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="10"></td><td class="line-content">    </td></tr><tr><td class="line-number" value="11"></td><td class="line-content">    h1 {</td></tr><tr><td class="line-number" value="12"></td><td class="line-content">      margin: 0 auto;</td></tr><tr><td class="line-number" value="13"></td><td class="line-content">      text-align: center;</td></tr><tr><td class="line-number" value="14"></td><td class="line-content">      font-size: 4em;</td></tr><tr><td class="line-number" value="15"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="16"></td><td class="line-content">    </td></tr><tr><td class="line-number" value="17"></td><td class="line-content">    ul {</td></tr><tr><td class="line-number" value="18"></td><td class="line-content">      width: 500px;</td></tr><tr><td class="line-number" value="19"></td><td class="line-content">      margin: 2em auto;</td></tr><tr><td class="line-number" value="20"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="21"></td><td class="line-content">  </td></tr><tr><td class="line-number" value="22"></td><td class="line-content">    .hidden {</td></tr><tr><td class="line-number" value="23"></td><td class="line-content">      position: fixed;</td></tr><tr><td class="line-number" value="24"></td><td class="line-content">      width: 1px;</td></tr><tr><td class="line-number" value="25"></td><td class="line-content">      height: 1px;</td></tr><tr><td class="line-number" value="26"></td><td class="line-content">      overflow: hidden;</td></tr><tr><td class="line-number" value="27"></td><td class="line-content">      top: -10px;</td></tr><tr><td class="line-number" value="28"></td><td class="line-content">      left: -10px;</td></tr><tr><td class="line-number" value="29"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="30"></td><td class="line-content">    </td></tr><tr><td class="line-number" value="31"></td><td class="line-content">    .success {</td></tr><tr><td class="line-number" value="32"></td><td class="line-content">      font-weight: bold;</td></tr><tr><td class="line-number" value="33"></td><td class="line-content">      color: #0a0;</td></tr><tr><td class="line-number" value="34"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="35"></td><td class="line-content">    </td></tr><tr><td class="line-number" value="36"></td><td class="line-content">    .error {</td></tr><tr><td class="line-number" value="37"></td><td class="line-content">      color: #a00;</td></tr><tr><td class="line-number" value="38"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="39"></td><td class="line-content">  <span class="html-tag">&lt;/style&gt;</span></td></tr><tr><td class="line-number" value="40"></td><td class="line-content">  <span class="html-tag">&lt;script&gt;</span></td></tr><tr><td class="line-number" value="41"></td><td class="line-content">    function cleanup(func, el, delayCleanup) {</td></tr><tr><td class="line-number" value="42"></td><td class="line-content">      return function() {</td></tr><tr><td class="line-number" value="43"></td><td class="line-content">        if (delayCleanup) {</td></tr><tr><td class="line-number" value="44"></td><td class="line-content">          delayCleanup = false;</td></tr><tr><td class="line-number" value="45"></td><td class="line-content">          return;</td></tr><tr><td class="line-number" value="46"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="47"></td><td class="line-content">        func();</td></tr><tr><td class="line-number" value="48"></td><td class="line-content">        el.parentNode.removeChild(el);</td></tr><tr><td class="line-number" value="49"></td><td class="line-content">      };</td></tr><tr><td class="line-number" value="50"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="51"></td><td class="line-content">  </td></tr><tr><td class="line-number" value="52"></td><td class="line-content">    function get(url) {</td></tr><tr><td class="line-number" value="53"></td><td class="line-content">      return function(success, error) {</td></tr><tr><td class="line-number" value="54"></td><td class="line-content">        var img = document.createElement("img");</td></tr><tr><td class="line-number" value="55"></td><td class="line-content">        img.onload = cleanup(success, img);</td></tr><tr><td class="line-number" value="56"></td><td class="line-content">        img.onerror = cleanup(success, img);</td></tr><tr><td class="line-number" value="57"></td><td class="line-content">        img.className = "hidden";</td></tr><tr><td class="line-number" value="58"></td><td class="line-content">        document.body.appendChild(img);</td></tr><tr><td class="line-number" value="59"></td><td class="line-content">        img.src = url;</td></tr><tr><td class="line-number" value="60"></td><td class="line-content">      };</td></tr><tr><td class="line-number" value="61"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="62"></td><td class="line-content">    </td></tr><tr><td class="line-number" value="63"></td><td class="line-content">    var numPostFrames = 0;</td></tr><tr><td class="line-number" value="64"></td><td class="line-content">    function post(url, params, fakeOk) {</td></tr><tr><td class="line-number" value="65"></td><td class="line-content">      params = params || {};</td></tr><tr><td class="line-number" value="66"></td><td class="line-content">      return function(success, error) {</td></tr><tr><td class="line-number" value="67"></td><td class="line-content">        var form = document.createElement("form");</td></tr><tr><td class="line-number" value="68"></td><td class="line-content">        var iframe = document.createElement("iframe");</td></tr><tr><td class="line-number" value="69"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="70"></td><td class="line-content">        iframe.className = "hidden";</td></tr><tr><td class="line-number" value="71"></td><td class="line-content">        iframe.onload = cleanup(cleanup(success, form), iframe, true);</td></tr><tr><td class="line-number" value="72"></td><td class="line-content">        iframe.onerror = cleanup(cleanup(error, form), iframe, true);</td></tr><tr><td class="line-number" value="73"></td><td class="line-content">        iframe.name = "iframe" + numPostFrames++;</td></tr><tr><td class="line-number" value="74"></td><td class="line-content">        document.body.appendChild(iframe);</td></tr><tr><td class="line-number" value="75"></td><td class="line-content">        </td></tr><tr><td class="line-number" value="76"></td><td class="line-content">        form.action = url;</td></tr><tr><td class="line-number" value="77"></td><td class="line-content">        form.method = "POST";</td></tr><tr><td class="line-number" value="78"></td><td class="line-content">        form.target = iframe.name;</td></tr><tr><td class="line-number" value="79"></td><td class="line-content">        </td></tr><tr><td class="line-number" value="80"></td><td class="line-content">        for (var param in params) {</td></tr><tr><td class="line-number" value="81"></td><td class="line-content">          if (params.hasOwnProperty(param)) {</td></tr><tr><td class="line-number" value="82"></td><td class="line-content">            var input = document.createElement("input");</td></tr><tr><td class="line-number" value="83"></td><td class="line-content">            input.type = "hidden";</td></tr><tr><td class="line-number" value="84"></td><td class="line-content">            input.name = param;</td></tr><tr><td class="line-number" value="85"></td><td class="line-content">            input.value = params[param];</td></tr><tr><td class="line-number" value="86"></td><td class="line-content">            form.appendChild(input);</td></tr><tr><td class="line-number" value="87"></td><td class="line-content">          }</td></tr><tr><td class="line-number" value="88"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="89"></td><td class="line-content">        </td></tr><tr><td class="line-number" value="90"></td><td class="line-content">        document.body.appendChild(form);</td></tr><tr><td class="line-number" value="91"></td><td class="line-content">        form.submit();</td></tr><tr><td class="line-number" value="92"></td><td class="line-content">        </td></tr><tr><td class="line-number" value="93"></td><td class="line-content">        if (fakeOk) {</td></tr><tr><td class="line-number" value="94"></td><td class="line-content">          success();</td></tr><tr><td class="line-number" value="95"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="96"></td><td class="line-content">      };</td></tr><tr><td class="line-number" value="97"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="98"></td><td class="line-content">    </td></tr><tr><td class="line-number" value="99"></td><td class="line-content">    function and(one, two) {</td></tr><tr><td class="line-number" value="100"></td><td class="line-content">      return function(success, error) {</td></tr><tr><td class="line-number" value="101"></td><td class="line-content">        var oneSuccess = false;</td></tr><tr><td class="line-number" value="102"></td><td class="line-content">        var twoSuccess = false;</td></tr><tr><td class="line-number" value="103"></td><td class="line-content">        var oneSuccessFunc = function() {</td></tr><tr><td class="line-number" value="104"></td><td class="line-content">          oneSuccess = true;</td></tr><tr><td class="line-number" value="105"></td><td class="line-content">          if (twoSuccess) {</td></tr><tr><td class="line-number" value="106"></td><td class="line-content">            success();</td></tr><tr><td class="line-number" value="107"></td><td class="line-content">          }</td></tr><tr><td class="line-number" value="108"></td><td class="line-content">        };</td></tr><tr><td class="line-number" value="109"></td><td class="line-content">        var twoSuccessFunc = function() {</td></tr><tr><td class="line-number" value="110"></td><td class="line-content">          twoSuccess = true;</td></tr><tr><td class="line-number" value="111"></td><td class="line-content">          if (oneSuccess) {</td></tr><tr><td class="line-number" value="112"></td><td class="line-content">            success();</td></tr><tr><td class="line-number" value="113"></td><td class="line-content">          }</td></tr><tr><td class="line-number" value="114"></td><td class="line-content">        };</td></tr><tr><td class="line-number" value="115"></td><td class="line-content">        one(oneSuccessFunc, error);</td></tr><tr><td class="line-number" value="116"></td><td class="line-content">        two(twoSuccessFunc, error);</td></tr><tr><td class="line-number" value="117"></td><td class="line-content">      }</td></tr><tr><td class="line-number" value="118"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="119"></td><td class="line-content">    </td></tr><tr><td class="line-number" value="120"></td><td class="line-content">    function doSites(list, sites) {</td></tr><tr><td class="line-number" value="121"></td><td class="line-content">      sites.forEach(function(site) {</td></tr><tr><td class="line-number" value="122"></td><td class="line-content">        if (!site.length) {</td></tr><tr><td class="line-number" value="123"></td><td class="line-content">          return;</td></tr><tr><td class="line-number" value="124"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="125"></td><td class="line-content">        </td></tr><tr><td class="line-number" value="126"></td><td class="line-content">        var name = site[0];</td></tr><tr><td class="line-number" value="127"></td><td class="line-content">        var action = site[1];</td></tr><tr><td class="line-number" value="128"></td><td class="line-content">        </td></tr><tr><td class="line-number" value="129"></td><td class="line-content">        var li = document.createElement("li");</td></tr><tr><td class="line-number" value="130"></td><td class="line-content">        var nameNode = document.createElement("strong");</td></tr><tr><td class="line-number" value="131"></td><td class="line-content">        nameNode.appendChild(document.createTextNode(name));</td></tr><tr><td class="line-number" value="132"></td><td class="line-content">        var statusNode = document.createElement("span");</td></tr><tr><td class="line-number" value="133"></td><td class="line-content">        statusNode.innerHTML = "...";</td></tr><tr><td class="line-number" value="134"></td><td class="line-content">        li.appendChild(nameNode);</td></tr><tr><td class="line-number" value="135"></td><td class="line-content">        li.appendChild(document.createTextNode(': '));</td></tr><tr><td class="line-number" value="136"></td><td class="line-content">        li.appendChild(statusNode);</td></tr><tr><td class="line-number" value="137"></td><td class="line-content">        </td></tr><tr><td class="line-number" value="138"></td><td class="line-content">        var success = function() {</td></tr><tr><td class="line-number" value="139"></td><td class="line-content">          statusNode.innerHTML = "OK";</td></tr><tr><td class="line-number" value="140"></td><td class="line-content">          statusNode.className = "success";</td></tr><tr><td class="line-number" value="141"></td><td class="line-content">        };</td></tr><tr><td class="line-number" value="142"></td><td class="line-content">        var error = function() {</td></tr><tr><td class="line-number" value="143"></td><td class="line-content">          statusNode.innerHTML = "error";</td></tr><tr><td class="line-number" value="144"></td><td class="line-content">          statusNode.className = "error";</td></tr><tr><td class="line-number" value="145"></td><td class="line-content">        };</td></tr><tr><td class="line-number" value="146"></td><td class="line-content">        </td></tr><tr><td class="line-number" value="147"></td><td class="line-content">        action(success, error);</td></tr><tr><td class="line-number" value="148"></td><td class="line-content">        </td></tr><tr><td class="line-number" value="149"></td><td class="line-content">        list.appendChild(li);</td></tr><tr><td class="line-number" value="150"></td><td class="line-content">      });</td></tr><tr><td class="line-number" value="151"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="152"></td><td class="line-content">    </td></tr><tr><td class="line-number" value="153"></td><td class="line-content">    window.onload = function() {</td></tr><tr><td class="line-number" value="154"></td><td class="line-content">      doSites(document.getElementById("sitelist"), [</td></tr><tr><td class="line-number" value="155"></td><td class="line-content">        ["AOL", and(get("http://my.screenname.aol.com/_cqr/logout/mcLogout.psp?sitedomain=startpage.aol.com&amp;authLev=0&amp;lang=en&amp;locale=us"), get("https://api.screenname.aol.com/auth/logout?state=snslogout&amp;r=" + Math.random()))],</td></tr><tr><td class="line-number" value="156"></td><td class="line-content">        ["Amazon", get("http://www.amazon.com/gp/flex/sign-out.html?action=sign-out")],</td></tr><tr><td class="line-number" value="157"></td><td class="line-content">        ["Blogger", get("http://www.blogger.com/logout.g")],</td></tr><tr><td class="line-number" value="158"></td><td class="line-content">        ["Delicious", get("http://www.delicious.com/logout")],</td></tr><tr><td class="line-number" value="159"></td><td class="line-content">        ["DeviantART", post("http://www.deviantart.com/users/logout")],</td></tr><tr><td class="line-number" value="160"></td><td class="line-content">        ["DreamHost", get("https://panel.dreamhost.com/index.cgi?Nscmd=Nlogout")],</td></tr><tr><td class="line-number" value="161"></td><td class="line-content">        ["Dropbox", get("https://www.dropbox.com/logout")],</td></tr><tr><td class="line-number" value="162"></td><td class="line-content">        ["eBay", get("https://signin.ebay.com/ws/eBayISAPI.dll?SignIn")],</td></tr><tr><td class="line-number" value="163"></td><td class="line-content">        ["Gandi", get("https://www.gandi.net/login/out")],</td></tr><tr><td class="line-number" value="164"></td><td class="line-content">        ["GitHub", get("https://github.com/logout")],</td></tr><tr><td class="line-number" value="165"></td><td class="line-content">        ["GMail", get("http://mail.google.com/mail/?logout")],</td></tr><tr><td class="line-number" value="166"></td><td class="line-content">        ["Google", get("https://www.google.com/accounts/Logout")],</td></tr><tr><td class="line-number" value="167"></td><td class="line-content">        ["Hulu", get("https://secure.hulu.com/logout")],</td></tr><tr><td class="line-number" value="168"></td><td class="line-content">        ["Instapaper", get("http://www.instapaper.com/user/logout")],</td></tr><tr><td class="line-number" value="169"></td><td class="line-content">        ["Linode", get("https://manager.linode.com/session/logout")],</td></tr><tr><td class="line-number" value="170"></td><td class="line-content">        ["LiveJournal", post("http://www.livejournal.com/logout.bml", {"action:killall": "1"})],</td></tr><tr><td class="line-number" value="171"></td><td class="line-content">        ["MySpace", get("http://www.myspace.com/index.cfm?fuseaction=signout")],</td></tr><tr><td class="line-number" value="172"></td><td class="line-content">        ["NetFlix", get("http://www.netflix.com/Logout")],</td></tr><tr><td class="line-number" value="173"></td><td class="line-content">        ["New York Times", get("http://www.nytimes.com/logout")],</td></tr><tr><td class="line-number" value="174"></td><td class="line-content">        ["Newegg", get("https://secure.newegg.com/NewMyAccount/AccountLogout.aspx")],</td></tr><tr><td class="line-number" value="175"></td><td class="line-content">        ["Photobucket", get("http://photobucket.com/logout")],</td></tr><tr><td class="line-number" value="176"></td><td class="line-content">        ["Skype", get("https://secure.skype.com/account/logout")],</td></tr><tr><td class="line-number" value="177"></td><td class="line-content">        ["Slashdot", get("http://slashdot.org/my/logout")],</td></tr><tr><td class="line-number" value="178"></td><td class="line-content">        ["SoundCloud", get("http://soundcloud.com/logout")],</td></tr><tr><td class="line-number" value="179"></td><td class="line-content">        ["Steam Community", get("http://steamcommunity.com/?action=doLogout")],</td></tr><tr><td class="line-number" value="180"></td><td class="line-content">        ["Steam Store", get("http://store.steampowered.com/logout/")],</td></tr><tr><td class="line-number" value="181"></td><td class="line-content">        ["ThinkGeek", get("https://www.thinkgeek.com/brain/account/login.cgi?a=lo")],</td></tr><tr><td class="line-number" value="182"></td><td class="line-content">        ["Threadless", get("http://www.threadless.com/logout")],</td></tr><tr><td class="line-number" value="183"></td><td class="line-content">        ["Tumblr", get("http://www.tumblr.com/logout")],</td></tr><tr><td class="line-number" value="184"></td><td class="line-content">        ["Vimeo", get("http://vimeo.com/log_out")],</td></tr><tr><td class="line-number" value="185"></td><td class="line-content">        ["Wikipedia", get("http://en.wikipedia.org/w/index.php?title=Special:UserLogout")],</td></tr><tr><td class="line-number" value="186"></td><td class="line-content">        ["Windows Live", get("http://login.live.com/logout.srf")],</td></tr><tr><td class="line-number" value="187"></td><td class="line-content">        ["Woot", get("https://account.woot.com/logout")],</td></tr><tr><td class="line-number" value="188"></td><td class="line-content">        ["Wordpress", get("https://wordpress.com/wp-login.php?action=logout")],</td></tr><tr><td class="line-number" value="189"></td><td class="line-content">        ["Yahoo!", get("https://login.yahoo.com/config/login?.src=fpctx&amp;logout=1&amp;.direct=1&amp;.done=http://www.yahoo.com/")],</td></tr><tr><td class="line-number" value="190"></td><td class="line-content">        ["YouTube", post("http://www.youtube.com", {"action_logout": "1"}, true)],</td></tr><tr><td class="line-number" value="191"></td><td class="line-content">        </td></tr><tr><td class="line-number" value="192"></td><td class="line-content">        []</td></tr><tr><td class="line-number" value="193"></td><td class="line-content">      ])</td></tr><tr><td class="line-number" value="194"></td><td class="line-content">    };</td></tr><tr><td class="line-number" value="195"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="196"></td><td class="line-content">    var _gaq = _gaq || [];</td></tr><tr><td class="line-number" value="197"></td><td class="line-content">    _gaq.push(['_setAccount', 'UA-24596689-1']);</td></tr><tr><td class="line-number" value="198"></td><td class="line-content">    _gaq.push(['_trackPageview']);</td></tr><tr><td class="line-number" value="199"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="200"></td><td class="line-content">    (function() {</td></tr><tr><td class="line-number" value="201"></td><td class="line-content">      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;</td></tr><tr><td class="line-number" value="202"></td><td class="line-content">      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';</td></tr><tr><td class="line-number" value="203"></td><td class="line-content">      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);</td></tr><tr><td class="line-number" value="204"></td><td class="line-content">    })();</td></tr><tr><td class="line-number" value="205"></td><td class="line-content">  <span class="html-tag">&lt;/script&gt;</span></td></tr><tr><td class="line-number" value="206"></td><td class="line-content"><span class="html-tag">&lt;/head&gt;</span></td></tr><tr><td class="line-number" value="207"></td><td class="line-content"><span class="html-tag">&lt;body&gt;</span></td></tr><tr><td class="line-number" value="208"></td><td class="line-content">  <span class="html-tag">&lt;h1&gt;</span>SUPER LOGOUT<span class="html-tag">&lt;/h1&gt;</span></td></tr><tr><td class="line-number" value="209"></td><td class="line-content">  <span class="html-tag">&lt;ul <span class="html-attribute-name">id</span>="<span class="html-attribute-value">sitelist</span>"&gt;</span></td></tr><tr><td class="line-number" value="210"></td><td class="line-content">  <span class="html-tag">&lt;/ul&gt;</span></td></tr><tr><td class="line-number" value="211"></td><td class="line-content"><span class="html-tag">&lt;/body&gt;</span></td></tr><tr><td class="line-number" value="212"></td><td class="line-content"><span class="html-tag">&lt;/html&gt;</span></td></tr><tr><td class="line-number" value="213"></td><td class="line-content"><span class="html-end-of-file"></span></td></tr></tbody></table></body></html>
+        iframe.className = "hidden";
+        iframe.onload = cleanup(cleanup(success, form), iframe, true);
+        iframe.onerror = cleanup(cleanup(error, form), iframe, true);
+        iframe.name = "iframe" + numPostFrames++;
+        document.body.appendChild(iframe);
+        
+        form.action = url;
+        form.method = "POST";
+        form.target = iframe.name;
+        
+        for (var param in params) {
+          if (params.hasOwnProperty(param)) {
+            var input = document.createElement("input");
+            input.type = "hidden";
+            input.name = param;
+            input.value = params[param];
+            form.appendChild(input);
+          }
+        }
+        
+        document.body.appendChild(form);
+        form.submit();
+        
+        if (fakeOk) {
+          success();
+        }
+      };
+    }
+    
+    function and(one, two) {
+      return function(success, error) {
+        var oneSuccess = false;
+        var twoSuccess = false;
+        var oneSuccessFunc = function() {
+          oneSuccess = true;
+          if (twoSuccess) {
+            success();
+          }
+        };
+        var twoSuccessFunc = function() {
+          twoSuccess = true;
+          if (oneSuccess) {
+            success();
+          }
+        };
+        one(oneSuccessFunc, error);
+        two(twoSuccessFunc, error);
+      }
+    }
+    
+    function doSites(list, sites) {
+      sites.forEach(function(site) {
+        if (!site.length) {
+          return;
+        }
+        
+        var name = site[0];
+        var action = site[1];
+        
+        var li = document.createElement("li");
+        var nameNode = document.createElement("strong");
+        nameNode.appendChild(document.createTextNode(name));
+        var statusNode = document.createElement("span");
+        statusNode.innerHTML = "...";
+        li.appendChild(nameNode);
+        li.appendChild(document.createTextNode(': '));
+        li.appendChild(statusNode);
+        
+        var success = function() {
+          statusNode.innerHTML = "OK";
+          statusNode.className = "success";
+        };
+        var error = function() {
+          statusNode.innerHTML = "error";
+          statusNode.className = "error";
+        };
+        
+        action(success, error);
+        
+        list.appendChild(li);
+      });
+    }
+    
+    window.onload = function() {
+      doSites(document.getElementById("sitelist"), [
+        ["AOL", and(get("http://my.screenname.aol.com/_cqr/logout/mcLogout.psp?sitedomain=startpage.aol.com&authLev=0&lang=en&locale=us"), get("https://api.screenname.aol.com/auth/logout?state=snslogout&r=" + Math.random()))],
+        ["Amazon", get("http://www.amazon.com/gp/flex/sign-out.html?action=sign-out")],
+        ["Blogger", get("http://www.blogger.com/logout.g")],
+        ["Delicious", get("http://www.delicious.com/logout")],
+        ["DeviantART", post("http://www.deviantart.com/users/logout")],
+        ["DreamHost", get("https://panel.dreamhost.com/index.cgi?Nscmd=Nlogout")],
+        ["Dropbox", get("https://www.dropbox.com/logout")],
+        ["eBay", get("https://signin.ebay.com/ws/eBayISAPI.dll?SignIn")],
+        ["Gandi", get("https://www.gandi.net/login/out")],
+        ["GitHub", get("https://github.com/logout")],
+        ["GMail", get("http://mail.google.com/mail/?logout")],
+        ["Google", get("https://www.google.com/accounts/Logout")],
+        ["Hulu", get("https://secure.hulu.com/logout")],
+        ["Instapaper", get("http://www.instapaper.com/user/logout")],
+        ["Linode", get("https://manager.linode.com/session/logout")],
+        ["LiveJournal", post("http://www.livejournal.com/logout.bml", {"action:killall": "1"})],
+        ["MySpace", get("http://www.myspace.com/index.cfm?fuseaction=signout")],
+        ["NetFlix", get("http://www.netflix.com/Logout")],
+        ["New York Times", get("http://www.nytimes.com/logout")],
+        ["Newegg", get("https://secure.newegg.com/NewMyAccount/AccountLogout.aspx")],
+        ["Photobucket", get("http://photobucket.com/logout")],
+        ["Skype", get("https://secure.skype.com/account/logout")],
+        ["Slashdot", get("http://slashdot.org/my/logout")],
+        ["SoundCloud", get("http://soundcloud.com/logout")],
+        ["Steam Community", get("http://steamcommunity.com/?action=doLogout")],
+        ["Steam Store", get("http://store.steampowered.com/logout/")],
+        ["ThinkGeek", get("https://www.thinkgeek.com/brain/account/login.cgi?a=lo")],
+        ["Threadless", get("http://www.threadless.com/logout")],
+        ["Tumblr", get("http://www.tumblr.com/logout")],
+        ["Vimeo", get("http://vimeo.com/log_out")],
+        ["Wikipedia", get("http://en.wikipedia.org/w/index.php?title=Special:UserLogout")],
+        ["Windows Live", get("http://login.live.com/logout.srf")],
+        ["Woot", get("https://account.woot.com/logout")],
+        ["Wordpress", get("https://wordpress.com/wp-login.php?action=logout")],
+        ["Yahoo!", get("https://login.yahoo.com/config/login?.src=fpctx&logout=1&.direct=1&.done=http://www.yahoo.com/")],
+        ["YouTube", post("http://www.youtube.com", {"action_logout": "1"}, true)],
+        
+        []
+      ])
+    };
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24596689-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <h1>SUPER LOGOUT</h1>
+  <ul id="sitelist">
+  </ul>
+</body>
+</html>
