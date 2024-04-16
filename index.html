@@ -1,40 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AlperMail</title>
   <style>
     body {
-      font-family: sans-serif;
-      margin-top: 5em;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
     }
-    
-    h1 {
-      margin: 0 auto;
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1em 0;
       text-align: center;
-      font-size: 4em;
     }
-    
+
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
     ul {
-      width: 500px;
+      list-style-type: none;
+      padding: 0;
       margin: 2em auto;
+      max-width: 600px;
     }
-  
-    .hidden {
-      position: fixed;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      top: -10px;
-      left: -10px;
+
+    li {
+      margin-bottom: 1em;
+      padding: 1em;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-    
-    .success {
+
+    strong {
       font-weight: bold;
+    }
+
+    .success {
       color: #0a0;
     }
-    
+
     .error {
       color: #a00;
+    }
+    /* Dark mode */
+    .dark-mode body {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .dark-mode header {
+      background-color: #666;
+    }
+
+    .dark-mode li {
+      background-color: #444;
+      color: #fff;
     }
   </style>
   <script>
@@ -136,7 +164,7 @@
         li.appendChild(statusNode);
         
         var success = function() {
-          statusNode.innerHTML = "OK";
+          statusNode.innerHTML = "Success :)";
           statusNode.className = "success";
         };
         var error = function() {
@@ -202,11 +230,23 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
   </script>
 </head>
 <body>
-  <h1>SUPER LOGOUT</h1>
-  <ul id="sitelist">
-  </ul>
+  <header>
+    <img src="fella.png" alt="alpursocal">
+  </header>
+  <main>
+    <ul id="sitelist">
+    </ul>
+  </main>
+  <footer style="text-align: center; margin-top: 2em;">
+    <p style="font-size: 2em;">:D</p>
+    <a>Made with ❤️ by </a><a href="https://alper.boo">Alper</a>
+  </footer>
 </body>
 </html>
