@@ -15,7 +15,7 @@ This is not an email service, this is a joke. This website will make you logout 
 ## Features
 
 - Uses fast methods to help the user logout of every site imaginable (by using GET and POST requests)
-- Pisses off the user
+- Piss of your friends in seconds!
 
 
 ## Demo
