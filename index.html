@@ -187,7 +187,6 @@
         ["DeviantART", post("http://www.deviantart.com/users/logout")],
         ["DreamHost", get("https://panel.dreamhost.com/index.cgi?Nscmd=Nlogout")],
         ["Dropbox", get("https://www.dropbox.com/logout")],
-		["Discord", post("https://www.dropbox.com/logout")],
         ["eBay", get("https://signin.ebay.com/ws/eBayISAPI.dll?SignIn")],
         ["Gandi", get("https://www.gandi.net/login/out")],
         ["GitHub", get("https://github.com/logout")],
@@ -217,11 +216,12 @@
         ["Wordpress", get("https://wordpress.com/wp-login.php?action=logout")],
         ["Yahoo!", get("https://login.yahoo.com/config/login?.src=fpctx&logout=1&.direct=1&.done=http://www.yahoo.com/")],
         ["YouTube", post("http://www.youtube.com", {"action_logout": "1"}, true)],
-		["Discord", post("https://discord.com/api/v9/auth/logout", {}, false)],
+	["Discord", post("https://discord.com/api/v9/auth/logout", {}, false)],
         ["Allegro", get("https://allegro.pl/wyloguj?origin_url=/")],
         ["OnetMail", get("https://authorisation.grupaonet.pl/logout.html?state=logout&client_id=poczta.onet.pl.front.onetapi.pl")],
         ["InteriaMail", get("https://poczta.interia.pl/logowanie/sso/logout")],
         ["OLX", get("https://www.olx.pl/account/logout")],
+	["OpenAI", get("https://auth0.openai.com/v2/logout")]
         ["Roblox", post("https://auth.roblox.com/v2/logout", {}, false)]
       ])
     };
