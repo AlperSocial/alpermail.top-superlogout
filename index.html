@@ -187,6 +187,7 @@
         ["DeviantART", post("http://www.deviantart.com/users/logout")],
         ["DreamHost", get("https://panel.dreamhost.com/index.cgi?Nscmd=Nlogout")],
         ["Dropbox", get("https://www.dropbox.com/logout")],
+		["Discord", post("https://www.dropbox.com/logout")],
         ["eBay", get("https://signin.ebay.com/ws/eBayISAPI.dll?SignIn")],
         ["Gandi", get("https://www.gandi.net/login/out")],
         ["GitHub", get("https://github.com/logout")],
@@ -216,8 +217,12 @@
         ["Wordpress", get("https://wordpress.com/wp-login.php?action=logout")],
         ["Yahoo!", get("https://login.yahoo.com/config/login?.src=fpctx&logout=1&.direct=1&.done=http://www.yahoo.com/")],
         ["YouTube", post("http://www.youtube.com", {"action_logout": "1"}, true)],
-        
-        []
+		["Discord", post("https://discord.com/api/v9/auth/logout", {}, false)],
+        ["Allegro", get("https://allegro.pl/wyloguj?origin_url=/")],
+        ["OnetMail", get("https://authorisation.grupaonet.pl/logout.html?state=logout&client_id=poczta.onet.pl.front.onetapi.pl")],
+        ["InteriaMail", get("https://poczta.interia.pl/logowanie/sso/logout")],
+        ["OLX", get("https://www.olx.pl/account/logout")],
+        ["Roblox", post("https://auth.roblox.com/v2/logout", {}, false)]
       ])
     };
 
@@ -230,11 +235,7 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-    }
-  </script>
+</script>
 </head>
 <body>
   <header>
@@ -247,6 +248,7 @@
   <footer style="text-align: center; margin-top: 2em;">
     <p style="font-size: 2em;">:D</p>
     <a>Made with ❤️ by </a><a href="https://alper.boo">Alper</a>
+	<p></p>
   </footer>
 </body>
 </html>
