@@ -1,5 +1,5 @@
 
-![Logo](https://raw.githubusercontent.com/AlperSocial/alpermail.top/main/alpermail.png)
+![Logo](https://raw.githubusercontent.com/AlperSocial/alpermail.top/main/cdn/alpermail.png)
 
 
 AlperMail is the best email provider that you can choose! This project is a modified version of [SuperLogout](https://superlogout.com) and was inspired by [ptoszek.pl](https://ptoszek.pl)
