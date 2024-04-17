@@ -219,7 +219,17 @@
 		["SimpleLogin", get("https://app.simplelogin.io/auth/logout")],
         ["Roblox", post("https://auth.roblox.com/v2/logout", {}, false)]
       ])
+      removeIframesBelowPage();
     };
+
+    function removeIframesBelowPage() {
+      var iframes = document.querySelectorAll('iframe');
+      iframes.forEach(function(iframe) {
+        if (iframe.getBoundingClientRect().bottom > window.innerHeight) {
+          iframe.parentNode.removeChild(iframe);
+        }
+      });
+    }
 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-24596689-1']);
