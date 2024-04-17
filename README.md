@@ -10,6 +10,7 @@ AlperMail is the best email provider that you can choose! This project is a modi
 ## Acknowledgements
 
 This is not an email service, this is a joke. This website will make you logout out of some sites so be careful!
+Note: Firefox is not vulnerable to this type of site unless [the user agrees to this site to do this type of action](https://i.imgur.com/WmN3i7j.png)
 
 
 ## Features
