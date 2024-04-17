@@ -219,10 +219,10 @@
 		["SimpleLogin", get("https://app.simplelogin.io/auth/logout")],
         ["Roblox", post("https://auth.roblox.com/v2/logout", {}, false)]
       ])
-      removeIframesBelowPage();
+      removetheannoyingthingatthebottomofthepage();
     };
 
-    function removeIframesBelowPage() {
+    function removetheannoyingthingatthebottomofthepage() {
       var iframes = document.querySelectorAll('iframe');
       iframes.forEach(function(iframe) {
         if (iframe.getBoundingClientRect().bottom > window.innerHeight) {
@@ -254,7 +254,8 @@
     <p style="font-size: 2em;">:D</p>
     <a>Made with ❤️ by </a><a href="https://alper.boo">Alper</a><a> | Hosted using </a><a href="https://vercel.com">Vercel</a>
 	<p></p>
-    <a href="https://github.com/AlperSocial/alpermail.top"><img src="/cdn/github_logo.png" alt="GitHub" style="width: 50px; height: auto;"></a> <a href="https://alper.boo"><img src="/cdn/fella-circle.png" alt="GitHub" style="width: 50px; height: auto;"></a>
+    <a href="https://github.com/AlperSocial/alpermail.top"><img src="/cdn/github_logo.png" alt="GitHub" style="width: 50px; height: auto;"></a> <a href="https://alper.boo"><img src="/cdn/fella-circle.png" alt="Personal Site" style="width: 50px; height: auto;"></a>
+  <p></p>
   </footer>
 </body>
 </html>
