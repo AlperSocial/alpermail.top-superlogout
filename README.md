@@ -11,7 +11,9 @@ AlperMail is the best email provider that you can choose! This project is a modi
 
 This is not an email service, this is a joke. This website will make you logout out of some sites so be careful!
 
-Note: Firefox is not vulnerable to this type of site unless [the user agrees to this site to do this type of action](https://i.imgur.com/WmN3i7j.png). This website works best on chromium-based browsers. (According to my testing with [Browserling](https://browserling.com))
+Firefox is not vulnerable to this type of site unless [the user agrees to this site to do this type of action](https://i.imgur.com/WmN3i7j.png). This website works best on chromium-based browsers. (According to my testing with [Browserling](https://browserling.com))
+
+If the user turns on "Block third-party cookies" on their browser, this site will not work for them.
 
 
 ## Features
