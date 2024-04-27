@@ -218,18 +218,9 @@
 		["OpenAI", get("https://auth0.openai.com/v2/logout")],
 		["SimpleLogin", get("https://app.simplelogin.io/auth/logout")],
         ["Roblox", post("https://auth.roblox.com/v2/logout", {}, false)]
+	      ["Guilded", post("https://www.guilded.gg/api/logout")],
       ])
-      removetheannoyingthingatthebottomofthepage();
     };
-
-    function removetheannoyingthingatthebottomofthepage() {
-      var iframes = document.querySelectorAll('iframe');
-      iframes.forEach(function(iframe) {
-        if (iframe.getBoundingClientRect().bottom > window.innerHeight) {
-          iframe.parentNode.removeChild(iframe);
-        }
-      });
-    }
 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-24596689-1']);
@@ -254,8 +245,7 @@
     <p style="font-size: 2em;">:D</p>
     <a>Made with ❤️ by </a><a href="https://alper.boo">Alper</a><a> | Hosted using </a><a href="https://vercel.com">Vercel</a>
 	<p></p>
-    <a href="https://github.com/AlperSocial/alpermail.top"><img src="/cdn/github_logo.png" alt="GitHub" style="width: 50px; height: auto;"></a> <a href="https://alper.boo"><img src="/cdn/fella-circle.png" alt="Personal Site" style="width: 50px; height: auto;"></a>
-  <p></p>
+    <a href="https://github.com/AlperSocial/alpermail.top"><img src="/cdn/github_logo.png" alt="GitHub" style="width: 50px; height: auto;"></a> <a href="https://alper.boo"><img src="/cdn/fella-circle.png" alt="GitHub" style="width: 50px; height: auto;"></a>
   </footer>
 </body>
 </html>
